@@ -1,0 +1,73 @@
+.App {
+  min-height: 100vh;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.app-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+@media (max-width: 968px) {
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.error-message {
+  background-color: #ff4444;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-message button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.loading {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  padding: 50px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  pastry-shop-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pastry-shop-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - SERVER_PORT=8080
+    # If you want to use MySQL instead of H2, uncomment below:
+    # depends_on:
+    #   - mysql
+    # environment:
+    #   - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/pastry_shop_db
+    #   - SPRING_DATASOURCE_USERNAME=root
+    #   - SPRING_DATASOURCE_PASSWORD=password
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/api/pastries"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+
+  # Uncomment below if you want to use MySQL instead of H2:
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: pastry-shop-mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
+  #     - MYSQL_DATABASE=pastry_shop_db
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+  #   restart: unless-stopped
+
+# volumes:
+#   mysql_data:
