@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieCard from './MovieCard';
-import './PastryList.css';
+import './MovieList.css';
 
 function MovieList({ movies, onEdit, onDelete }) {
   if (movies.length === 0) {

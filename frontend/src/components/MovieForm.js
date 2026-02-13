@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './PastryForm.css';
+import './MovieForm.css';
 
 function MovieForm({ onSubmit, editingMovie, onCancel }) {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    price: '',
+    ticketPrice: '',
     imageUrl: '',
-    category: 'Action',
+    genre: 'Action',
     inStock: true
   });
 
@@ -16,9 +16,9 @@ function MovieForm({ onSubmit, editingMovie, onCancel }) {
       setFormData({
         name: editingMovie.name || '',
         description: editingMovie.description || '',
-        price: editingMovie.price || '',
+        ticketPrice: editingMovie.ticketPrice ?? '',
         imageUrl: editingMovie.imageUrl || '',
-        category: editingMovie.category || 'Action',
+        genre: editingMovie.genre || 'Action',
         inStock: editingMovie.inStock !== undefined ? editingMovie.inStock : true
       });
     }
@@ -36,7 +36,7 @@ function MovieForm({ onSubmit, editingMovie, onCancel }) {
     e.preventDefault();
     const movieData = {
       ...formData,
-      price: parseFloat(formData.price)
+      ticketPrice: parseFloat(formData.ticketPrice)
     };
     onSubmit(movieData);
     resetForm();
@@ -46,9 +46,9 @@ function MovieForm({ onSubmit, editingMovie, onCancel }) {
     setFormData({
       name: '',
       description: '',
-      price: '',
+      ticketPrice: '',
       imageUrl: '',
-      category: 'Action',
+      genre: 'Action',
       inStock: true
     });
   };
@@ -89,12 +89,12 @@ function MovieForm({ onSubmit, editingMovie, onCancel }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="price">Ticket Price ($) *</label>
+          <label htmlFor="ticketPrice">Ticket Price ($) *</label>
           <input
             type="number"
-            id="price"
-            name="price"
-            value={formData.price}
+            id="ticketPrice"
+            name="ticketPrice"
+            value={formData.ticketPrice}
             onChange={handleChange}
             required
             min="0"
@@ -116,11 +116,11 @@ function MovieForm({ onSubmit, editingMovie, onCancel }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="category">Genre</label>
+          <label htmlFor="genre">Genre</label>
           <select
-            id="category"
-            name="category"
-            value={formData.category}
+            id="genre"
+            name="genre"
+            value={formData.genre}
             onChange={handleChange}
           >
             <option value="Action">Action</option>

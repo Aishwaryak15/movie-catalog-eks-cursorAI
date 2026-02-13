@@ -1,21 +1,19 @@
--- Database setup script for Pastry Shop Application
+-- Database setup script for Movie Catalog Application
 -- Run this script in MySQL to set up the database
 
 -- Create the database
-CREATE DATABASE IF NOT EXISTS pastry_shop_db;
+CREATE DATABASE IF NOT EXISTS movie_catalog_db;
 
 -- Use the database
-USE pastry_shop_db;
+USE movie_catalog_db;
 
 -- Show confirmation
-SELECT 'Database pastry_shop_db created successfully!' AS Status;
+SELECT 'Database movie_catalog_db created successfully!' AS Status;
 
 -- Optional: Insert some sample data (uncomment to use)
 /*
-INSERT INTO pastries (name, description, price, image_url, category, in_stock, created_at, updated_at) VALUES
-('Chocolate Cake', 'Rich and moist chocolate cake with chocolate frosting', 25.99, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400', 'Cake', true, NOW(), NOW()),
-('Croissant', 'Buttery, flaky French pastry perfect for breakfast', 3.50, 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400', 'Croissant', true, NOW(), NOW()),
-('Macaron', 'Delicate French meringue cookies with various flavors', 2.99, 'https://images.unsplash.com/photo-1558312657-b2dead0fb77f?w=400', 'Macaron', true, NOW(), NOW()),
-('Apple Pie', 'Classic American apple pie with cinnamon', 18.99, 'https://images.unsplash.com/photo-1535920527002-b35e96722eb9?w=400', 'Pie', true, NOW(), NOW()),
-('Blueberry Donut', 'Soft glazed donut with blueberry filling', 4.50, 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400', 'Donut', false, NOW(), NOW());
+INSERT INTO movies (name, description, ticket_price, image_url, genre, in_stock, created_at, updated_at) VALUES
+('Inception', 'A thief who steals corporate secrets through dream-sharing technology', 12.99, 'https://via.placeholder.com/300x200/667eea/ffffff?text=Inception', 'Sci-Fi', true, NOW(), NOW()),
+('The Dark Knight', 'Batman faces the Joker in Gotham City', 11.50, 'https://via.placeholder.com/300x200/667eea/ffffff?text=Dark+Knight', 'Action', true, NOW(), NOW()),
+('Interstellar', 'A team of explorers travel through a wormhole in space', 13.00, 'https://via.placeholder.com/300x200/667eea/ffffff?text=Interstellar', 'Sci-Fi', true, NOW(), NOW());
 */

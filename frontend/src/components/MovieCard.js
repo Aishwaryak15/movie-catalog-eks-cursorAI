@@ -1,12 +1,12 @@
 import React from 'react';
-import './PastryCard.css';
+import './MovieCard.css';
 
 function MovieCard({ movie, onEdit, onDelete }) {
   const defaultPoster = 'https://via.placeholder.com/300x200/667eea/ffffff?text=Movie';
 
   return (
-    <div className="pastry-card">
-      <div className="pastry-image">
+    <div className="movie-card">
+      <div className="movie-image">
         <img 
           src={movie.imageUrl || defaultPoster} 
           alt={movie.name}
@@ -15,18 +15,18 @@ function MovieCard({ movie, onEdit, onDelete }) {
         {!movie.inStock && <div className="out-of-stock-badge">Out of Stock</div>}
       </div>
       
-      <div className="pastry-content">
-        <div className="pastry-header">
+      <div className="movie-content">
+        <div className="movie-header">
           <h3>{movie.name}</h3>
-          <span className="pastry-category">{movie.category}</span>
+          <span className="movie-category">{movie.genre}</span>
         </div>
         
-        <p className="pastry-description">{movie.description}</p>
+        <p className="movie-description">{movie.description}</p>
         
-        <div className="pastry-footer">
-          <div className="pastry-price">${movie.price.toFixed(2)}</div>
+        <div className="movie-footer">
+          <div className="movie-price">${movie.ticketPrice.toFixed(2)}</div>
           
-          <div className="pastry-actions">
+          <div className="movie-actions">
             <button 
               className="btn-edit" 
               onClick={() => onEdit(movie)}
